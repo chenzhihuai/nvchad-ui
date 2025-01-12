@@ -20,7 +20,7 @@ vim.cmd [[
   endfunction]]
 
 vim.cmd [[
-  function! TbKillBuf(bufnr,b,c,d) 
+  function! TbKillBuf(bufnr,b,c,d)
     call luaeval('require("nvchad.tabufline").close_buffer(_A)', a:bufnr)
   endfunction]]
 
@@ -32,6 +32,14 @@ vim.cmd "function! TbToggleTabs(a,b,c,d) \n let g:TbTabsToggled = !g:TbTabsToggl
 
 ---------------------------------- functions -------------------------------------------
 
+local function getNeoTreeWidth()
+  for _, win in pairs(api.nvim_tabpage_list_wins(0)) do
+    if vim.bo[api.nvim_win_get_buf(win)].ft == "neo-tree" then
+      return api.nvim_win_get_width(win)
+    end
+  end
+  return 0
+end
 local function getNvimTreeWidth()
   for _, win in pairs(api.nvim_tabpage_list_wins(0)) do
     if vim.bo[api.nvim_win_get_buf(win)].ft == "NvimTree" then
@@ -57,8 +65,8 @@ end
 ------------------------------------- modules -----------------------------------------
 
 M.treeOffset = function()
-  local w = getNvimTreeWidth()
-  return w == 0 and "" or "%#NvimTreeNormal#" .. strep(" ", w) .. "%#NvimTreeWinSeparator#" .. "│"
+  local w = getNeoTreeWidth()
+  return w == 0 and "" or "%#NeoTreeNormal#" .. strep(" ", w) .. "%#NeoTreeWinSeparator#" .. "│"
 end
 
 M.buffers = function()
