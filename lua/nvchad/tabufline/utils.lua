@@ -48,7 +48,7 @@ end
 
 M.style_buf = function(nr, i, w)
   -- add fileicon + name
-  local icon = "󰈚 "
+  local icon = " 󰈚 "
   local is_curbuf = cur_buf() == nr
   local tbHlName = "BufO" .. (is_curbuf and "n" or "ff")
   local icon_hl = new_hl2("DevIconDefault", tbHlName)
