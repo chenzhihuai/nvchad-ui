@@ -147,7 +147,7 @@ M.diagnostics = function()
 end
 
 M.separators = {
-  default = { left = "", right = "" },
+  default = { left = "█", right = "" },
   round = { left = "", right = "" },
   block = { left = "█", right = "█" },
   arrow = { left = "", right = "" },
