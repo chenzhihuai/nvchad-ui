@@ -25,7 +25,12 @@ end
 
 local btn = M.btn
 local txt = M.txt
-
+local function new_hl2(group1, group2)
+  local bg = fn.synIDattr(fn.synIDtrans(fn.hlID(group1)), "fg#")
+  local fg = fn.synIDattr(fn.synIDtrans(fn.hlID("Tb" .. group2)), "bg#")
+  api.nvim_set_hl(0, group1 .. group2, { fg = fg, bg = bg })
+  return "%#" .. group1 .. group2 .. "#"
+end
 local function new_hl(group1, group2)
   local fg = get_hl(0, { name = group1 }).fg
   local bg = get_hl(0, { name = "Tb" .. group2 }).bg
@@ -46,7 +51,7 @@ M.style_buf = function(nr, i, w)
   local icon = "󰈚 "
   local is_curbuf = cur_buf() == nr
   local tbHlName = "BufO" .. (is_curbuf and "n" or "ff")
-  local icon_hl = new_hl("DevIconDefault", tbHlName)
+  local icon_hl = new_hl2("DevIconDefault", tbHlName)
 
   local name = filename(buf_name(nr))
   name = gen_unique_name(name, i) or name
@@ -57,20 +62,23 @@ M.style_buf = function(nr, i, w)
 
     if devicon then
       icon = " " .. devicon .. " "
-      icon_hl = new_hl(devicon_hl, tbHlName)
+      icon_hl = new_hl2(devicon_hl, tbHlName)
     end
   end
 
   -- padding around bufname; 15= maxnamelen + 2 icon & space + 2 close icon
   local pad = math.floor((w - #name - 5) / 2)
-  pad = pad <= 0 and 1 or pad
+  pad = pad <= 0 and 2 or pad
 
   local maxname_len = 15
 
   name = string.sub(name, 1, 13) .. (#name > maxname_len and ".." or "")
-  name = M.txt(name, tbHlName)
-
-  name = strep(" ", pad - 1) .. (icon_hl .. icon .. name) .. strep(" ", pad - 1)
+  name = M.txt(strep(" ", pad - 1) .. name, tbHlName)
+  if is_curbuf then
+    name = (icon_hl .. "" .. icon .. "") .. name .. strep(" ", pad - 1)
+  else
+    name = ("" .. icon .. "") .. name .. strep(" ", pad - 1)
+  end
 
   local close_btn = btn(" 󰅖 ", nil, "KillBuf", nr)
   name = btn(name, nil, "GoToBuf", nr)
