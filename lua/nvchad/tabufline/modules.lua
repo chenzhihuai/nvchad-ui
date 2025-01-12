@@ -68,7 +68,11 @@ end
 
 M.treeOffset = function()
   local w = getNeoTreeWidth()
-  return w == 0 and "" or "%#NeoTreeNormal#" .. strep(" ", w) .. "%#NeoTreeWinSeparator#" .. "│"
+  local title = "Neo Tree"
+  -- return w == 0 and "" or "%#NeoTreeNormal#" .. strep(" ", w) .. "%#NeoTreeWinSeparator#" .. "│"
+  local pad = (w - #title) / 2
+  return w == 0 and ""
+      or "%#NeoTreeNormal#" .. strep(" ", pad) .. title .. strep(" ", pad) .. "%#NeoTreeWinSeparator#" .. "│"
 end
 
 M.buffers = function()
