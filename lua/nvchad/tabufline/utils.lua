@@ -66,18 +66,18 @@ M.style_buf = function(nr, i, w)
     end
   end
 
-  -- padding around bufname; 15= maxnamelen + 2 icon & space + 2 close icon
-  local pad = math.floor((w - #name - 5) / 2)
-  pad = pad <= 0 and 2 or pad
+  -- padding around bufname; w = maxnamelen + 4 icon & space + 4 space & close
+  local pad = math.floor((w - #name - 6) / 2)
+  pad = pad <= 0 and 1 or pad
 
   local maxname_len = 15
 
-  name = string.sub(name, 1, 13) .. (#name > maxname_len and ".." or "")
-  name = M.txt(strep(" ", pad - 1) .. name, tbHlName)
+  name = string.sub(name, 1, 14) .. (#name > maxname_len and "" or "")
+  name = M.txt(strep(" ", pad) .. name, tbHlName)
   if is_curbuf then
-    name = (icon_hl .. "" .. icon .. "") .. name .. strep(" ", pad - 1)
+    name = (icon_hl .. icon) .. name .. strep(" ", pad)
   else
-    name = ("" .. icon .. "") .. name .. strep(" ", pad - 1)
+    name = icon .. name .. strep(" ", pad)
   end
 
   local close_btn = btn(" 󰅖 ", nil, "KillBuf", nr)
