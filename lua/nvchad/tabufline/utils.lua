@@ -46,6 +46,7 @@ local function gen_unique_name(name, index)
   end
 end
 
+local shortcuts = { "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹" }
 M.style_buf = function(nr, i, w)
   -- add fileicon + name
   local icon = " 󰈚 "
@@ -61,8 +62,15 @@ M.style_buf = function(nr, i, w)
 
     if devicon then
       icon = " " .. devicon .. " "
+      -- local prefix = i <= #shortcuts and shortcuts[i] or " "
+      -- icon = " " .. devicon .. prefix
       icon_hl = new_hl2(devicon_hl, tbHlName)
     end
+  end
+
+  -- name = name .. shortcuts[i]
+  if i <= #shortcuts then
+    name = shortcuts[i] .. name
   end
 
   -- padding around bufname; w = maxnamelen + 4 icon & space + 4 space & close
@@ -71,7 +79,7 @@ M.style_buf = function(nr, i, w)
 
   local maxname_len = 15
 
-  name = string.sub(name, 1, 14) .. (#name > maxname_len and "" or "")
+  name = string.sub(name, 1, 14) .. (#name > maxname_len and "…" or "")
   name = M.txt(strep(" ", pad) .. name, tbHlName)
   if is_curbuf then
     name = (icon_hl .. icon) .. name .. strep(" ", pad)
