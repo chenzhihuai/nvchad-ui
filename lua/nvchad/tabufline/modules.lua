@@ -65,12 +65,13 @@ end
 ------------------------------------- modules -----------------------------------------
 
 M.treeOffset = function()
-  local w = getNeoTreeWidth()
-  local title = "Neo Tree"
+  local w = getNeoTreeWidth() + getNvimTreeWidth()
+  local prefix= getNeoTreeWidth() > 0 and 'Neo' or 'Nvim'
+  local title = prefix.." Tree"
   -- return w == 0 and "" or "%#NeoTreeNormal#" .. strep(" ", w) .. "%#NeoTreeWinSeparator#" .. "│"
   local pad = (w - #title) / 2
   return w == 0 and ""
-    or "%#NeoTreeNormal#" .. strep(" ", pad) .. title .. strep(" ", pad) .. "%#NeoTreeWinSeparator#" .. "▐"
+    or "%#"..prefix.."TreeNormal#" .. strep(" ", pad) .. title .. strep(" ", pad) .. "%#"..prefix.."TreeWinSeparator#" .. "▐"
 end
 
 M.buffers = function()
