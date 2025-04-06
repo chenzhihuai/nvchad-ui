@@ -67,11 +67,12 @@ end
 M.treeOffset = function()
   local w = getNeoTreeWidth() + getNvimTreeWidth()
   local prefix= getNeoTreeWidth() > 0 and 'Neo' or 'Nvim'
-  local title = prefix.." Tree"
+  local title = prefix.."Tree"
   -- return w == 0 and "" or "%#NeoTreeNormal#" .. strep(" ", w) .. "%#NeoTreeWinSeparator#" .. "│"
-  local pad = (w - #title) / 2
+  local lpad = math.ceil((w - #title) / 2)
+  local rpad = w - #title - lpad
   return w == 0 and ""
-    or "%#"..prefix.."TreeNormal#" .. strep(" ", pad) .. title .. strep(" ", pad) .. "%#"..prefix.."TreeWinSeparator#" .. "▐"
+    or "%#"..prefix.."TreeNormal#" .. strep(" ", lpad) .. title .. strep(" ", rpad) .. "%#"..prefix.."TreeWinSeparator#" .. "▐"
 end
 
 M.buffers = function()
