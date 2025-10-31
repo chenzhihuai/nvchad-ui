@@ -30,9 +30,12 @@ M.components = {
   },
 }
 
+local bordered ='Normal:Normal,FloatBorder:Comment,CursorLine:CmpSel,Search:None'
+local borderless ='Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None'
 M.menu = {
   scrollbar = false,
   border = atom_styled and "none" or "single",
+  winhighlight = atom_styled and borderless or bordered,
   draw = {
     padding = { atom_styled and 0 or 1, 1 },
     columns = menu_cols,
