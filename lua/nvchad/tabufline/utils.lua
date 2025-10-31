@@ -25,6 +25,7 @@ end
 local btn = M.btn
 local txt = M.txt
 local function new_hl2(group1, group2)
+  local fn=vim.fn
   local bg = fn.synIDattr(fn.synIDtrans(fn.hlID(group1)), "fg#")
   local fg = fn.synIDattr(fn.synIDtrans(fn.hlID("Tb" .. group2)), "bg#")
   api.nvim_set_hl(0, group1 .. group2, { fg = fg, bg = bg })

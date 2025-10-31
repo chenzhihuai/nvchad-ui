@@ -33,7 +33,7 @@ autocmd({ "BufAdd", "BufEnter", "tabnew" }, {
 
     -- remove unnamed buffer which isnt current buf & modified
     if args.event == "BufAdd" then
-      if #api.nvim_buf_get_name(bufs[1]) == 0 and not get_opt("modified", { buf = bufs[1] }) then
+      if api.nvim_buf_is_valid(bufs[1]) and #api.nvim_buf_get_name(bufs[1]) == 0 and not get_opt("modified", { buf = bufs[1] }) then
         table.remove(bufs, 1)
       end
     end

@@ -91,7 +91,9 @@ M.buffers = function()
     end
 
     has_current = cur_buf() == nr or has_current
-    table.insert(buffers, style_buf(nr, i, opts.bufwidth))
+    if api.nvim_buf_is_valid(nr) then
+      table.insert(buffers, style_buf(nr, i, opts.bufwidth))
+    end
   end
 
   return table.concat(buffers) .. txt("%=", "Fill") -- buffers + empty space
