@@ -2,8 +2,6 @@ local api = vim.api
 local fn = vim.fn
 local g = vim.g
 
-dofile(vim.g.base46_cache .. "tbline")
-
 local txt = require("nvchad.tabufline.utils").txt
 local btn = require("nvchad.tabufline.utils").btn
 local strep = string.rep
@@ -66,6 +64,8 @@ end
 M.buffers = function()
   local buffers = {}
   local has_current = false -- have we seen current buffer yet?
+
+  vim.t.bufs = vim.tbl_filter(vim.api.nvim_buf_is_valid, vim.t.bufs)
 
   for i, nr in ipairs(vim.t.bufs) do
     if ((#buffers + 1) * opts.bufwidth) > available_space() then

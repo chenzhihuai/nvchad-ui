@@ -120,6 +120,7 @@ error("Requiring a meta file")
 ---@field TbBufOffClose? Base46HLGroups # highlight group for tabufline
 ---@field TbBufOff? Base46HLGroups # highlight group for tabufline
 ---@field Tag? Base46HLGroups # highlight group for syntax
+---@field Tabline? Base46HLGroups # highlight group for tabufline
 ---@field TBTabTitle? Base46HLGroups # highlight group for tabufline
 ---@field Substitute? Base46HLGroups # highlight group for defaults
 ---@field Structure? Base46HLGroups # highlight group for syntax
@@ -134,6 +135,12 @@ error("Requiring a meta file")
 ---@field SagaNormal? Base46HLGroups # highlight group for lspsaga
 ---@field SagaBorder? Base46HLGroups # highlight group for lspsaga
 ---@field Repeat? Base46HLGroups # highlight group for syntax
+---@field RenderMarkdownH6Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH5Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH4Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH3Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH2Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH1Bg? Base46HLGroups # highlight group for render-markdown
 ---@field Removed? Base46HLGroups # highlight group for defaults
 ---@field RainbowDelimiterYellow? Base46HLGroups # highlight group for rainbowdelimiters
 ---@field RainbowDelimiterViolet? Base46HLGroups # highlight group for rainbowdelimiters
@@ -319,6 +326,13 @@ error("Requiring a meta file")
 ---@field NavicIconsArray? Base46HLGroups # highlight group for navic
 ---@field MoreMsg? Base46HLGroups # highlight group for defaults
 ---@field ModeMsg? Base46HLGroups # highlight group for defaults
+---@field MiniTablineVisible? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineTabpagesection? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineModifiedVisible? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineModifiedHidden? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineModifiedCurrent? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineHidden? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineCurrent? Base46HLGroups # highlight group for mini-tabline
 ---@field MatchWord? Base46HLGroups # highlight group for defaults
 ---@field MatchParen? Base46HLGroups # highlight group for defaults
 ---@field MasonMutedBlock? Base46HLGroups # highlight group for mason
@@ -384,6 +398,9 @@ error("Requiring a meta file")
 ---@field FloatTitle? Base46HLGroups # highlight group for defaults
 ---@field FloatBorder? Base46HLGroups # highlight group for defaults
 ---@field Float? Base46HLGroups # highlight group for syntax
+---@field FlashMatch? Base46HLGroups # highlight group for flash
+---@field FlashLabel? Base46HLGroups # highlight group for flash
+---@field FlashCurrent? Base46HLGroups # highlight group for flash
 ---@field Exception? Base46HLGroups # highlight group for defaults
 ---@field ErrorMsg? Base46HLGroups # highlight group for defaults
 ---@field Error? Base46HLGroups # highlight group for defaults
@@ -391,12 +408,8 @@ error("Requiring a meta file")
 ---@field EdgyWinBar? Base46HLGroups # highlight group for edgy
 ---@field EdgyNormal? Base46HLGroups # highlight group for edgy
 ---@field Directory? Base46HLGroups # highlight group for defaults
----@field DiffviewDiffText? Base46HLGroups # highlight group for diffview
 ---@field DiffviewDiffDeleteDim? Base46HLGroups # highlight group for diffview
----@field DiffviewDiffDelete? Base46HLGroups # highlight group for diffview
----@field DiffviewDiffChange? Base46HLGroups # highlight group for diffview
 ---@field DiffviewDiffAddAsDelete? Base46HLGroups # highlight group for diffview
----@field DiffviewDiffAdd? Base46HLGroups # highlight group for diffview
 ---@field DiffText? Base46HLGroups # highlight group for git
 ---@field DiffRemoved? Base46HLGroups # highlight group for git
 ---@field DiffModified? Base46HLGroups # highlight group for git
@@ -575,6 +588,67 @@ error("Requiring a meta file")
 ---@field BufferLineBufferSelected? Base46HLGroups # highlight group for bufferline
 ---@field BufferLineBackground? Base46HLGroups # highlight group for bufferline
 ---@field Boolean? Base46HLGroups # highlight group for syntax
+---@field BlinkPairsYellow? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsViolet? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsUnmatched? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsRed? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsPurple? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsOrange? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsMatchParen? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsGreen? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsCyan? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsBlue? Base46HLGroups # highlight group for blink-pair
+---@field BlinkCmpSource? Base46HLGroups # highlight group for blink
+---@field BlinkCmpSignatureHelpBorder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpSignatureHelpActiveParameter? Base46HLGroups # highlight group for blink
+---@field BlinkCmpSignatureHelp? Base46HLGroups # highlight group for blink
+---@field BlinkCmpScrollBarThumb? Base46HLGroups # highlight group for blink
+---@field BlinkCmpScrollBarGutter? Base46HLGroups # highlight group for blink
+---@field BlinkCmpMenuSelection? Base46HLGroups # highlight group for blink
+---@field BlinkCmpMenuBorder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpMenu? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelMatch? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelDetail? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelDescription? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelDeprecated? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabel? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindVariable? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindValue? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindUnit? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindTypeParameter? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindType? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindText? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindTabNine? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindSuperMaven? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindStructure? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindStruct? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindSnippet? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindReference? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindProperty? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindOperator? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindModule? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindMethod? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindKeyword? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindInterface? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindIdentifier? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindFunction? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindFolder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindFile? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindField? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindEvent? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindEnumMember? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindEnum? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindCopilot? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindConstructor? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindConstant? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindColor? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindCodeium? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindClass? Base46HLGroups # highlight group for blink
+---@field BlinkCmpGhostText? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDocSeparator? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDocCursorLine? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDocBorder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDoc? Base46HLGroups # highlight group for blink
 ---@field AvanteTitle? Base46HLGroups # highlight group for avante
 ---@field AvanteThirdTitle? Base46HLGroups # highlight group for avante
 ---@field AvanteSubtitle? Base46HLGroups # highlight group for avante
@@ -739,6 +813,7 @@ error("Requiring a meta file")
 ---@field TbBufOffClose? Base46HLGroups # highlight group for tabufline
 ---@field TbBufOff? Base46HLGroups # highlight group for tabufline
 ---@field Tag? Base46HLGroups # highlight group for syntax
+---@field Tabline? Base46HLGroups # highlight group for tabufline
 ---@field TBTabTitle? Base46HLGroups # highlight group for tabufline
 ---@field Substitute? Base46HLGroups # highlight group for defaults
 ---@field Structure? Base46HLGroups # highlight group for syntax
@@ -788,6 +863,12 @@ error("Requiring a meta file")
 ---@field SagaNormal? Base46HLGroups # highlight group for lspsaga
 ---@field SagaBorder? Base46HLGroups # highlight group for lspsaga
 ---@field Repeat? Base46HLGroups # highlight group for syntax
+---@field RenderMarkdownH6Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH5Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH4Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH3Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH2Bg? Base46HLGroups # highlight group for render-markdown
+---@field RenderMarkdownH1Bg? Base46HLGroups # highlight group for render-markdown
 ---@field Removed? Base46HLGroups # highlight group for defaults
 ---@field RainbowDelimiterYellow? Base46HLGroups # highlight group for rainbowdelimiters
 ---@field RainbowDelimiterViolet? Base46HLGroups # highlight group for rainbowdelimiters
@@ -973,6 +1054,13 @@ error("Requiring a meta file")
 ---@field NavicIconsArray? Base46HLGroups # highlight group for navic
 ---@field MoreMsg? Base46HLGroups # highlight group for defaults
 ---@field ModeMsg? Base46HLGroups # highlight group for defaults
+---@field MiniTablineVisible? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineTabpagesection? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineModifiedVisible? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineModifiedHidden? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineModifiedCurrent? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineHidden? Base46HLGroups # highlight group for mini-tabline
+---@field MiniTablineCurrent? Base46HLGroups # highlight group for mini-tabline
 ---@field MatchWord? Base46HLGroups # highlight group for defaults
 ---@field MatchParen? Base46HLGroups # highlight group for defaults
 ---@field MasonMutedBlock? Base46HLGroups # highlight group for mason
@@ -1038,6 +1126,9 @@ error("Requiring a meta file")
 ---@field FloatTitle? Base46HLGroups # highlight group for defaults
 ---@field FloatBorder? Base46HLGroups # highlight group for defaults
 ---@field Float? Base46HLGroups # highlight group for syntax
+---@field FlashMatch? Base46HLGroups # highlight group for flash
+---@field FlashLabel? Base46HLGroups # highlight group for flash
+---@field FlashCurrent? Base46HLGroups # highlight group for flash
 ---@field Exception? Base46HLGroups # highlight group for defaults
 ---@field ErrorMsg? Base46HLGroups # highlight group for defaults
 ---@field Error? Base46HLGroups # highlight group for defaults
@@ -1045,12 +1136,8 @@ error("Requiring a meta file")
 ---@field EdgyWinBar? Base46HLGroups # highlight group for edgy
 ---@field EdgyNormal? Base46HLGroups # highlight group for edgy
 ---@field Directory? Base46HLGroups # highlight group for defaults
----@field DiffviewDiffText? Base46HLGroups # highlight group for diffview
 ---@field DiffviewDiffDeleteDim? Base46HLGroups # highlight group for diffview
----@field DiffviewDiffDelete? Base46HLGroups # highlight group for diffview
----@field DiffviewDiffChange? Base46HLGroups # highlight group for diffview
 ---@field DiffviewDiffAddAsDelete? Base46HLGroups # highlight group for diffview
----@field DiffviewDiffAdd? Base46HLGroups # highlight group for diffview
 ---@field DiffText? Base46HLGroups # highlight group for git
 ---@field DiffRemoved? Base46HLGroups # highlight group for git
 ---@field DiffModified? Base46HLGroups # highlight group for git
@@ -1229,6 +1316,67 @@ error("Requiring a meta file")
 ---@field BufferLineBufferSelected? Base46HLGroups # highlight group for bufferline
 ---@field BufferLineBackground? Base46HLGroups # highlight group for bufferline
 ---@field Boolean? Base46HLGroups # highlight group for syntax
+---@field BlinkPairsYellow? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsViolet? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsUnmatched? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsRed? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsPurple? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsOrange? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsMatchParen? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsGreen? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsCyan? Base46HLGroups # highlight group for blink-pair
+---@field BlinkPairsBlue? Base46HLGroups # highlight group for blink-pair
+---@field BlinkCmpSource? Base46HLGroups # highlight group for blink
+---@field BlinkCmpSignatureHelpBorder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpSignatureHelpActiveParameter? Base46HLGroups # highlight group for blink
+---@field BlinkCmpSignatureHelp? Base46HLGroups # highlight group for blink
+---@field BlinkCmpScrollBarThumb? Base46HLGroups # highlight group for blink
+---@field BlinkCmpScrollBarGutter? Base46HLGroups # highlight group for blink
+---@field BlinkCmpMenuSelection? Base46HLGroups # highlight group for blink
+---@field BlinkCmpMenuBorder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpMenu? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelMatch? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelDetail? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelDescription? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabelDeprecated? Base46HLGroups # highlight group for blink
+---@field BlinkCmpLabel? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindVariable? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindValue? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindUnit? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindTypeParameter? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindType? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindText? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindTabNine? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindSuperMaven? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindStructure? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindStruct? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindSnippet? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindReference? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindProperty? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindOperator? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindModule? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindMethod? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindKeyword? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindInterface? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindIdentifier? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindFunction? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindFolder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindFile? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindField? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindEvent? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindEnumMember? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindEnum? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindCopilot? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindConstructor? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindConstant? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindColor? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindCodeium? Base46HLGroups # highlight group for blink
+---@field BlinkCmpKindClass? Base46HLGroups # highlight group for blink
+---@field BlinkCmpGhostText? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDocSeparator? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDocCursorLine? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDocBorder? Base46HLGroups # highlight group for blink
+---@field BlinkCmpDoc? Base46HLGroups # highlight group for blink
 ---@field AvanteTitle? Base46HLGroups # highlight group for avante
 ---@field AvanteThirdTitle? Base46HLGroups # highlight group for avante
 ---@field AvanteSubtitle? Base46HLGroups # highlight group for avante
@@ -1353,6 +1501,8 @@ error("Requiring a meta file")
 ---| "'alpha'"
 ---| "'avante'"
 ---| "'blankline'"
+---| "'blink-pair'"
+---| "'blink'"
 ---| "'bufferline'"
 ---| "'cmp'"
 ---| "'codeactionmenu'"
@@ -1361,6 +1511,7 @@ error("Requiring a meta file")
 ---| "'devicons'"
 ---| "'diffview'"
 ---| "'edgy'"
+---| "'flash'"
 ---| "'git-conflict'"
 ---| "'git'"
 ---| "'grug_far'"
@@ -1370,6 +1521,7 @@ error("Requiring a meta file")
 ---| "'lspsaga'"
 ---| "'markview'"
 ---| "'mason'"
+---| "'mini-tabline'"
 ---| "'navic'"
 ---| "'neogit'"
 ---| "'notify'"
@@ -1378,6 +1530,7 @@ error("Requiring a meta file")
 ---| "'nvshades'"
 ---| "'orgmode'"
 ---| "'rainbowdelimiters'"
+---| "'render-markdown'"
 ---| "'semantic_tokens'"
 ---| "'statusline'"
 ---| "'syntax'"

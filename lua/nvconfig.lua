@@ -15,10 +15,8 @@ local options = {
       icons_left = false, -- only for non-atom styles!
       style = "default", -- default/flat_light/flat_dark/atom/atom_colored
       abbr_maxwidth = 60,
-      format_colors = {
-        tailwind = false, -- will work for css lsp too
-        icon = "󱓻",
-      },
+      -- for tailwind, css lsp etc
+      format_colors = { lsp = true, icon = "󱓻" },
     },
 
     telescope = { style = "borderless" }, -- borderless / bordered
@@ -46,18 +44,18 @@ local options = {
   nvdash = {
     load_on_startup = false,
     header = {
-      "                            ",
-      "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
-      "   ▄▀███▄     ▄██ █████▀    ",
-      "   ██▄▀███▄   ███           ",
-      "   ███  ▀███▄ ███           ",
-      "   ███    ▀██ ███           ",
-      "   ███      ▀ ███           ",
-      "   ▀██ █████▄▀█▀▄██████▄    ",
-      "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
-      "                            ",
-      "     Powered By  eovim    ",
-      "                            ",
+      "                      ",
+      "  ▄▄         ▄ ▄▄▄▄▄▄▄",
+      "▄▀███▄     ▄██ █████▀ ",
+      "██▄▀███▄   ███        ",
+      "███  ▀███▄ ███        ",
+      "███    ▀██ ███        ",
+      "███      ▀ ███        ",
+      "▀██ █████▄▀█▀▄██████▄ ",
+      "  ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀",
+      "                      ",
+      "  Powered By  eovim ",
+      "                      ",
     },
 
     buttons = {
@@ -77,6 +75,7 @@ local options = {
         end,
         hl = "NvDashFooter",
         no_gap = true,
+        content = "fit",
       },
 
       { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
@@ -84,6 +83,8 @@ local options = {
   },
 
   term = {
+    startinsert = true,
+    base46_colors = true,
     winopts = { number = false, relativenumber = false },
     sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
     float = {
